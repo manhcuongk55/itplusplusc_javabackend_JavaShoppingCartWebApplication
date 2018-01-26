@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `APP_USER`
+-- Table structure for table `PRODUCTS`
 --
 
-DROP TABLE IF EXISTS `APP_USER`;
+DROP TABLE IF EXISTS `PRODUCTS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `APP_USER` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `sso_id` varchar(30) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `first_name` varchar(30) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `phone` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `sso_id` (`sso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+CREATE TABLE `PRODUCTS` (
+  `Code` varchar(20) NOT NULL,
+  `Create_Date` datetime NOT NULL,
+  `Image` longblob,
+  `Name` varchar(255) NOT NULL,
+  `Price` double NOT NULL,
+  `Address` varchar(400) NOT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `APP_USER`
+-- Dumping data for table `PRODUCTS`
 --
 
-LOCK TABLES `APP_USER` WRITE;
-/*!40000 ALTER TABLE `APP_USER` DISABLE KEYS */;
-INSERT INTO `APP_USER` VALUES (52,'dmcksclck55','$2a$10$rfFDS1XQCx50.Waq8fD/cuhaF9mQvNHoiFhshFnpp8GoIOjmnQswW','Dinh','Manh Cuong','dmcksclck55@gmail.com',''),(53,'1dmcksclck55','$2a$10$.1YSIFu/Wdy4JIHG9Canj.FzIVrBmOzX.2rHJ0MgWYRRIkA7s/a5O','Dinh','Manh Cuong','1dmcksclck55@gmail.com',''),(54,'11dmcksclck55','$2a$10$009vhK9wwqX9Cag/bLv23eu.RwYc.bk3Un0aKRVDJ6hruHtVkohVy','','','11dmcksclck55@gmail.com',''),(55,'01674729310','$2a$10$V4MbKpyNjrOa/tg76yiVueXlWppEND2LDbq0FeqMaU/ih/0MXhBT.','','','','01674729310'),(56,'abc','$2a$10$1ssCH8vuh2BxXiHFiSHM2.94zTrcXqnkX6Rti6RUlzXgbwNfI.cqm','','','abc@gmail.com','');
-/*!40000 ALTER TABLE `APP_USER` ENABLE KEYS */;
+LOCK TABLES `PRODUCTS` WRITE;
+/*!40000 ALTER TABLE `PRODUCTS` DISABLE KEYS */;
+INSERT INTO `PRODUCTS` VALUES ('S001','2018-01-02 08:16:44',NULL,'Core Java',100,''),('S002','2018-01-02 08:16:44',NULL,'Spring for Beginners',50,''),('S003','2018-01-02 08:16:44',NULL,'Swift for Beginners',120,''),('S004','2018-01-02 08:16:44',NULL,'Oracle XML Parser',120,''),('S005','2018-01-02 08:16:44',NULL,'CSharp Tutorial for Beginers',110,'');
+/*!40000 ALTER TABLE `PRODUCTS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

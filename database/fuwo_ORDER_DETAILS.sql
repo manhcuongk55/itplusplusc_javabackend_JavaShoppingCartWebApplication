@@ -16,30 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Products`
+-- Table structure for table `ORDER_DETAILS`
 --
 
-DROP TABLE IF EXISTS `Products`;
+DROP TABLE IF EXISTS `ORDER_DETAILS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Products` (
-  `Code` varchar(20) NOT NULL,
-  `Create_Date` datetime NOT NULL,
-  `Image` longblob,
-  `Name` varchar(255) NOT NULL,
+CREATE TABLE `ORDER_DETAILS` (
+  `ID` varchar(50) NOT NULL,
+  `Amount` double NOT NULL,
   `Price` double NOT NULL,
-  PRIMARY KEY (`Code`)
+  `Quanity` int(11) NOT NULL,
+  `ORDER_ID` varchar(50) NOT NULL,
+  `PRODUCT_ID` varchar(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ORDER_DETAIL_ORD_FK` (`ORDER_ID`),
+  KEY `ORDER_DETAIL_PROD_FK` (`PRODUCT_ID`),
+  CONSTRAINT `ORDER_DETAIL_ORD_FK` FOREIGN KEY (`ORDER_ID`) REFERENCES `ORDERS` (`ID`),
+  CONSTRAINT `ORDER_DETAIL_PROD_FK` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `PRODUCTS` (`Code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Products`
+-- Dumping data for table `ORDER_DETAILS`
 --
 
-LOCK TABLES `Products` WRITE;
-/*!40000 ALTER TABLE `Products` DISABLE KEYS */;
-INSERT INTO `Products` VALUES ('S001','2018-01-02 08:16:44',NULL,'Core Java',100),('S002','2018-01-02 08:16:44',NULL,'Spring for Beginners',50),('S003','2018-01-02 08:16:44',NULL,'Swift for Beginners',120),('S004','2018-01-02 08:16:44',NULL,'Oracle XML Parser',120),('S005','2018-01-02 08:16:44',NULL,'CSharp Tutorial for Beginers',110);
-/*!40000 ALTER TABLE `Products` ENABLE KEYS */;
+LOCK TABLES `ORDER_DETAILS` WRITE;
+/*!40000 ALTER TABLE `ORDER_DETAILS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ORDER_DETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-12 17:51:33
+-- Dump completed on 2018-01-26  9:17:09

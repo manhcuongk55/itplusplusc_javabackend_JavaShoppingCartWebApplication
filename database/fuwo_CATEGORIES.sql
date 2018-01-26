@@ -16,34 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Order_Details`
+-- Table structure for table `CATEGORIES`
 --
 
-DROP TABLE IF EXISTS `Order_Details`;
+DROP TABLE IF EXISTS `CATEGORIES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Order_Details` (
-  `ID` varchar(50) NOT NULL,
-  `Amount` double NOT NULL,
-  `Price` double NOT NULL,
-  `Quanity` int(11) NOT NULL,
-  `ORDER_ID` varchar(50) NOT NULL,
-  `PRODUCT_ID` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `ORDER_DETAIL_ORD_FK` (`ORDER_ID`),
-  KEY `ORDER_DETAIL_PROD_FK` (`PRODUCT_ID`),
-  CONSTRAINT `ORDER_DETAIL_ORD_FK` FOREIGN KEY (`ORDER_ID`) REFERENCES `Orders` (`ID`),
-  CONSTRAINT `ORDER_DETAIL_PROD_FK` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `Products` (`Code`)
+CREATE TABLE `CATEGORIES` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `modified_by` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `type` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Order_Details`
+-- Dumping data for table `CATEGORIES`
 --
 
-LOCK TABLES `Order_Details` WRITE;
-/*!40000 ALTER TABLE `Order_Details` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Order_Details` ENABLE KEYS */;
+LOCK TABLES `CATEGORIES` WRITE;
+/*!40000 ALTER TABLE `CATEGORIES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CATEGORIES` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-12 17:51:33
+-- Dump completed on 2018-01-26  9:17:09

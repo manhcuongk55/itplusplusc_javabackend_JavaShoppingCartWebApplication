@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
  
 @Entity
-@Table(name = "Orders", //
+@Table(name = "ORDERS", //
 uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
 public class Order implements Serializable {
  

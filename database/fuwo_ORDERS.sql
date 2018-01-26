@@ -16,29 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Accounts`
+-- Table structure for table `ORDERS`
 --
 
-DROP TABLE IF EXISTS `Accounts`;
+DROP TABLE IF EXISTS `ORDERS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Accounts` (
-  `User_Name` varchar(20) NOT NULL,
-  `Active` bit(1) NOT NULL,
-  `Password` varchar(20) NOT NULL,
-  `User_Role` varchar(20) NOT NULL,
-  PRIMARY KEY (`User_Name`)
+CREATE TABLE `ORDERS` (
+  `ID` varchar(50) NOT NULL,
+  `Amount` double NOT NULL,
+  `Customer_Address` varchar(255) NOT NULL,
+  `Customer_Email` varchar(128) NOT NULL,
+  `Customer_Name` varchar(255) NOT NULL,
+  `Customer_Phone` varchar(128) NOT NULL,
+  `Order_Date` datetime NOT NULL,
+  `Order_Num` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `UK_sxhpvsj665kmi4f7jdu9d2791` (`Order_Num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Accounts`
+-- Dumping data for table `ORDERS`
 --
 
-LOCK TABLES `Accounts` WRITE;
-/*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES ('employee1','','123','EMPLOYEE'),('manager1','','123','MANAGER');
-/*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
+LOCK TABLES `ORDERS` WRITE;
+/*!40000 ALTER TABLE `ORDERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ORDERS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-12 17:51:33
+-- Dump completed on 2018-01-26  9:17:09
